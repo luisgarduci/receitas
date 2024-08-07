@@ -4,8 +4,8 @@ const BodyParser = require('body-parser');
 const sql = require('./database/mysqldb')
 const server = express();
 
-const port = 9080;
-const ip = '127.0.0.1';
+const port = 10000;
+const ip = 'https://receitas-rx87.onrender.com';
 
 server.use(cors({
     origin: '*'
