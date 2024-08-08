@@ -4,8 +4,8 @@ const BodyParser = require('body-parser');
 const sql = require('./database/mysqldb')
 const server = express();
 
-const port = 10000;
-const ip = 'https://receitas-rx87.onrender.com';
+const port = 9080;
+const ip = '127.0.0.1';
 
 server.use(cors({
     origin: '*'
@@ -29,6 +29,13 @@ server.get('/ingredientes', (req, res) => {
  sql.query('SELECT * FROM ingredientes WHERE id_receita = ?',[id_receita], (error, result) => {
     res.json(result)
  })
+})
+
+server.get('/preparo', (req, res) => {
+    let id_receita = req.query.id_receita;
+    sql.query('SELECT * FROM preparo WHERE id_receita = ?',[id_receita], (error, result) => {
+        res.json(result)
+     })
 })
 
 server.get('/quantidadeReceitas', (req, res) => {
