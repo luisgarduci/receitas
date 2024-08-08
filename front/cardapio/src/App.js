@@ -29,7 +29,9 @@ function App() {
     const [receitas, setReceita] = useState([])
     const [quantidadeReceitas, setQuantidade] = useState();
     let [index, setIndex] = useState(1);
-    const [ingredientes, setIngredientes] = useState([])
+    const [ingredientes, setIngredientes] = useState([]);
+    const [preparo, setPreparo] = useState([]);
+
     useEffect(() => {
       fetch(`http://127.0.0.1:9080/receitas?id_receita=${index}`)
       .then(response => response.json())
@@ -57,6 +59,17 @@ function App() {
           setQuantidade(data.length);
         })
     }, [])
+
+    useEffect(() => {
+       fetch(`http://127.0.0.1:9080/preparo?id_receita=${index}`, {
+        method: 'GET'
+       })
+       .then(response => response.json())
+       .then((data) => {
+        console.log(data);
+        setPreparo(data);
+       })
+    }, [index])
     return (
       
       <div className='body'>
@@ -92,7 +105,9 @@ function App() {
       <section id="mode">
       <h2>Modo de Preparo</h2>
       <ol id="preparationmode">
-  
+       {preparo.map((element) => (
+        <li>{element.modo}</li>
+       ))}
       </ol>
       </section>
       </div>
