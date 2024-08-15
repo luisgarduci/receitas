@@ -1,10 +1,13 @@
 const express = require('express');
 const cors = require('cors');
 const BodyParser = require('body-parser');
-const sql = require('./database/mysqldb')
+const sql = require('./database/mysqldb');
+const dotenv = require("dotenv");
 const server = express();
 
-const port = 9080;
+dotenv.config()
+
+const port = process.env.PORT || 9090;
 const ip = '127.0.0.1';
 
 server.use(cors({
