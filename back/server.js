@@ -7,7 +7,7 @@ const server = express();
 
 dotenv.config()
 
-const port = process.env.PORT || 9090;
+const port = process.env.PORT || 4000;
 const ip = '127.0.0.1';
 
 server.use(cors({
