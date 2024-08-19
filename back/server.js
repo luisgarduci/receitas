@@ -8,7 +8,7 @@ const server = express();
 dotenv.config()
 
 const port = 7880;
-const ip = 'https://receitas-12dv.onrender.com';
+const ip = '127.0.0.1';
 
 server.use(cors({
     origin: '*'
