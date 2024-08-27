@@ -25,15 +25,17 @@ function App() {
     })
   }
     */
+
+   console.log(localStorage)
     
     const [receitas, setReceita] = useState([])
     const [quantidadeReceitas, setQuantidade] = useState();
-    let [index, setIndex] = useState(1);
+    let [index, setIndex] = useState(Number(localStorage.getItem("index")));
     const [ingredientes, setIngredientes] = useState([]);
     const [preparo, setPreparo] = useState([]);
 
     useEffect(() => {
-      fetch(`http://127.0.0.1:9080/receitas?id_receita=${index}`)
+      fetch(`http://127.0.0.1:9086/receitas?id_receita=${index}`)
       .then(response => response.json())
       .then((data) => {
           setReceita(data)
@@ -41,7 +43,7 @@ function App() {
     }, [index])
     
     useEffect(() => {
-       fetch(`http://127.0.0.1:9080/ingredientes?id_receita=${index}`, {
+       fetch(`http://127.0.0.1:9086/ingredientes?id_receita=${index}`, {
         method: 'GET'
        })
        .then(response => response.json())
@@ -51,7 +53,7 @@ function App() {
     }, [index])
 
     useEffect(() => {
-        fetch('http://127.0.0.1:9080/quantidadeReceitas', {
+        fetch('http://127.0.0.1:9086/quantidadeReceitas', {
           method: 'GET'
         })
         .then(response => response.json())
@@ -61,7 +63,7 @@ function App() {
     }, [])
 
     useEffect(() => {
-       fetch(`http://127.0.0.1:9080/preparo?id_receita=${index}`, {
+       fetch(`http://127.0.0.1:9086/preparo?id_receita=${index}`, {
         method: 'GET'
        })
        .then(response => response.json())
@@ -75,7 +77,9 @@ function App() {
       <div className='body'>
       <FontAwesomeIcon className='arrows leftArrows arrowDesktop' icon={faChevronLeft} onClick={(() => {
             if (index > 1) {
-              setIndex(PrevIndex => PrevIndex - 1)
+              setIndex(PrevIndex => PrevIndex - 1);
+              let indexReceita = Number(localStorage.getItem("index")) - 1
+              localStorage.setItem("index", indexReceita);
             }
           })}/>
       <section id="menu">
@@ -84,11 +88,11 @@ function App() {
         <img src={receita['imagem']} alt="" id="image"></img>
         <h2 id="title">{receita['nome_receita']}</h2>
            
-           <p id="description">Um prato fácil e rápido, perfeito para qualquer refeição. Este clássico combina ovos batidos cozidos na perfeição, opcionalmente recheados com queijo, vegetais ou carnes à sua escolha.</p>
+           <p id="description">{receita.descricao}</p>
            <section id="time">
             <h3>Tempo de preparo</h3>
            <ul>
-             <li id="preparationtime">Total: Aproximadamente 20 minutos</li>
+             <li id="preparationtime">Total: Aproximadamente {receita.tempo}</li>
            </ul>
            </section>
        <section id="ingredients">
@@ -120,6 +124,9 @@ function App() {
   <FontAwesomeIcon className='arrows rightArrows arrowDesktop'icon={faChevronRight} onClick={(() => {
     if (index < quantidadeReceitas) {
       setIndex(PrevIndex => PrevIndex + 1)
+      let indexReceita = Number(localStorage.getItem("index")) + 1
+      localStorage.setItem("index", indexReceita)
+  
     }
     
     
