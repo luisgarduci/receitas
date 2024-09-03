@@ -1,11 +1,11 @@
 const mysql = require('mysql2')
 
 const settings = {
-    host: '127.0.0.1',
+    host: 'sql106.infinityfree.com',
     port: 3306,
     database: 'receitas',
-    user: 'root',
-    password: ''
+    user: 'if0_37238158',
+    password: 'DcFO4IMDaDp1'
 }
 
 const connection = mysql.createConnection(settings)
