@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const BodyParser = require('body-parser');
-const sql = require('./database/mysqldb');
+//const sql = require('./database/mysqldb');
 const dotenv = require("dotenv");
 const server = express();
 
@@ -20,7 +20,7 @@ server.listen(port, ip, () => {
     console.log(`Servidor Rodando na porta ${port}`)
 })
 
-server.get('/receitas', (req, res) => {
+/*server.get('/receitas', (req, res) => {
 let id_receita = req.query.id_receita;
 sql.query('SELECT * FROM receita WHERE id_receita = ?', [id_receita], (error, result) => {
     res.json(result)
@@ -47,5 +47,6 @@ server.get('/quantidadeReceitas', (req, res) => {
         res.json(result);
     })
 })
+*/
 
 
