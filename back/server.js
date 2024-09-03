@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const BodyParser = require('body-parser');
-//const sql = require('./database/mysqldb');
+const sql = require('./database/mysqldb');
 const dotenv = require("dotenv");
 const server = express();
 
