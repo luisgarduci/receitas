@@ -20,7 +20,7 @@ server.listen(port, ip, () => {
     console.log(`Servidor Rodando na porta ${port}`)
 })
 
-/*server.get('/receitas', (req, res) => {
+server.get('/receitas', (req, res) => {
 let id_receita = req.query.id_receita;
 sql.query('SELECT * FROM receita WHERE id_receita = ?', [id_receita], (error, result) => {
     res.json(result)
@@ -47,6 +47,5 @@ server.get('/quantidadeReceitas', (req, res) => {
         res.json(result);
     })
 })
-*/
 
 
