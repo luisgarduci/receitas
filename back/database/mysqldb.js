@@ -3,7 +3,7 @@ const mysql = require('mysql2')
 const settings = {
     host: 'sql106.infinityfree.com',
     port: 3306,
-    database: 'receitas',
+    database: 'if0_37238158_XXX',
     user: 'if0_37238158',
     password: 'DcFO4IMDaDp1'
 }
