@@ -35,7 +35,7 @@ function App() {
     const [preparo, setPreparo] = useState([]);
 
     useEffect(() => {
-      fetch(`http://127.0.0.1:9086/receitas?id_receita=${index}`)
+      fetch(`https://receitas-back.vercel.app/receitas?id_receita=${index}`)
       .then(response => response.json())
       .then((data) => {
           setReceita(data)
@@ -43,7 +43,7 @@ function App() {
     }, [index])
     
     useEffect(() => {
-       fetch(`http://127.0.0.1:9086/ingredientes?id_receita=${index}`, {
+       fetch(`https://receitas-back.vercel.app/ingredientes?id_receita=${index}`, {
         method: 'GET'
        })
        .then(response => response.json())
@@ -53,7 +53,7 @@ function App() {
     }, [index])
 
     useEffect(() => {
-        fetch('http://127.0.0.1:9086/quantidadeReceitas', {
+        fetch('https://receitas-back.vercel.app/quantidadeReceitas', {
           method: 'GET'
         })
         .then(response => response.json())
@@ -63,7 +63,7 @@ function App() {
     }, [])
 
     useEffect(() => {
-       fetch(`http://127.0.0.1:9086/preparo?id_receita=${index}`, {
+       fetch(`https://receitas-back.vercel.app/preparo?id_receita=${index}`, {
         method: 'GET'
        })
        .then(response => response.json())
