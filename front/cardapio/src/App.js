@@ -15,8 +15,8 @@ function App() {
     const [ingredientes, setIngredientes] = useState([]);
     const [preparo, setPreparo] = useState([]);
 
-    useEffect(async () => {
-      await fetch(`https://receitas-back.vercel.app/receitas?id_receita=${index}`)
+    useEffect(() => {
+      fetch(`https://receitas-back.vercel.app/receitas?id_receita=${index}`)
       .then(response => response.json())
       .then((data) => {
           setReceita(data)
