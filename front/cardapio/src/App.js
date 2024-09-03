@@ -22,6 +22,8 @@ function App() {
           setReceita(data)
       })
     }, [index])
+
+    /*
     
     useEffect(() => {
        fetch(`https://receitas-back.vercel.app/ingredientes?id_receita=${index}`, {
@@ -53,6 +55,8 @@ function App() {
         setPreparo(data);
        })
     }, [index])
+
+    */
     return (
       
       <div className='body'>
