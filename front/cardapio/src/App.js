@@ -9,28 +9,9 @@ library.add(faChevronLeft)
 library.add(faChevronRight)
 
 function App() {
-  /*
-  let permission = Notification.permission;
-  if(permission !== "granted") {
-    Notification.requestPermission();
-    new Notification('Olá', {
-      body: 'Teste de notificação',
-      icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgQ78U-DTw4r2zOAN60ZTYeNicS30lbM_Jdg&s'
-    })
-  }
-  else {
-    new Notification('Olá', {
-      body: 'Teste de notificação',
-      icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgQ78U-DTw4r2zOAN60ZTYeNicS30lbM_Jdg&s'
-    })
-  }
-    */
-
-   console.log(localStorage)
-    
     const [receitas, setReceita] = useState([])
     const [quantidadeReceitas, setQuantidade] = useState();
-    let [index, setIndex] = useState(Number(localStorage.getItem("index")));
+    let [index, setIndex] = useState(1);
     const [ingredientes, setIngredientes] = useState([]);
     const [preparo, setPreparo] = useState([]);
 
